@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="zh-cn" />
+	<title> 参数ID{{id}}</title>
+	<meta name="author" content="http://hi.baidu.com/%E7%B4%AB%E7%9F%B3" />
+</head>
+<body>
+
+{% ifequal act 'modify' %}
+	需要修改的参数列表如下，修改完成后，请按modify按钮进行保存
+	<form action="/index/{{case_id}}/param_act/" method="post" enctype="application/x-www-form-urlencoded">
+	<table width='500' border = '1'>
+	<tr><th>ID</th><th>Param_Name</th><th>Param_Value</th><th>Order</th></tr>
+	<tr>
+	<td><input type="hidden" name="param_id" value="{{param_i.id}}" /></td>
+	<td><input type="text" name="param_name" value="{{param_i.param_name}}" /></td>
+	<td><input type="text" name="param_value" value="{{param_i.param_value}}" /></td>
+	<td><input type="text" name="order" value="{{param_i.order}}" /></td>
+	</tr>
+	<div><input type="hidden" name="param_act" value="{{act}}" /></div>
+	<input type="submit" value="modify" /> <a href="/index/test">返回主页</a>
+	</table>
+	</form>
+	
+{% else %}{% ifequal act 'add' %}
+	创建完毕后，请按add按钮进行保存
+	<form action="/index/{{case_id}}/param_act/" method="post" enctype="application/x-www-form-urlencoded">
+	<table width='500' border = '1'>
+	<tr><th>ID</th><th>Param_Name</th><th>Param_Value</th><th>Order</th></tr>
+	<tr>
+	<td><input type="text" name="param_id" value="" /></td>
+	<td><input type="text" name="param_name" value="" /></td>
+	<td><input type="text" name="param_value" value="" /></td>
+	<td><input type="text" name="order" value="" /></td>
+	</tr>
+	<div><input type="hidden" name="param_act1" value="{{act}}" /></div>
+	<input type="submit" value="add" /> <a href="/index/test">返回主页</a>
+	</table>
+	</form>
+{% else %}{% ifequal act 'del' %}
+	是否确认删除该记录？
+	<form action="/index/{{case_id}}/param_act/" method="post" enctype="application/x-www-form-urlencoded">
+	<table width='500' border = '1'>
+	<tr><th>ID</th><th>Param_Name</th><th>Param_Value</th><th>Order</th></tr>
+	<tr>
+	<td><input type="text" name="param_id" value="{{param1_i.id}}" /></td>
+	<td><input type="text" name="param_name" value="{{param1_i.param_name}}" /></td>
+	<td><input type="text" name="param_value" value="{{param1_i.param_value}}" /></td>
+	<td><input type="text" name="order" value="{{param1_i.order}}" /></td>
+	</tr>
+	<div><input type="hidden" name="param_act2" value="{{act}}" /></div>
+	<input type="submit" value="del" /> <a href="/index/test">返回主页</a>
+	</table>
+	</form>
+	
+{% endifequal %}{% endifequal %}{% endifequal %}
+</table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="zh-cn" />
+	<title> 测试用例编号 {{ case_id }} </title>
+	<meta name="author" content="http://hi.baidu.com/%E7%B4%AB%E7%9F%B3" />
+</head>
+
+<body>
+
+<table width='500' border = '1'>
+<tr><th>ID</th><th>Param_Name</th><th>Param_Value</th><th>Order</th><th>Operation1</th><th>Operation2</th></tr>
+{% if param %}
+	{% for param_i in param %}
+		<tr><td>{{ param_i.id }}</td>
+		<td>{{ param_i.param_name }}</td>
+		<td>{{ param_i.param_value }}</td>
+		<td>{{ param_i.order }}</td>
+		<td><a href="?act=modify&step_id={{param_i.id}}">修改</a></td>
+		<td><a href="?act=del&step1_id={{param_i.id}}">删除</a></td></tr>
+	{% endfor %}
+{% else %}
+	<p> No params ...</p>
+{% endif %}
+</table>
+
+<a href="/index/test">返回主页</a> <a href="?act=add">添加参数</a></p>
+</body>
+</html> 

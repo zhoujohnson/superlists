@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Language" content="zh-cn" />
+	<title> 测试用例ID：{{case_id}}</title>
+	<meta name="author" content="http://hi.baidu.com/%E7%B4%AB%E7%9F%B3" />
+</head>
+<body>
+
+{% ifequal action 'modify' %}
+	需要修改的测试用例如下，修改完成后，请按modify按钮进行保存
+	<form action="/index/{{case_id}}/case_act/" method="post" enctype="application/x-www-form-urlencoded">
+	<table width='500' border = '1'>
+	<tr><th>ID</th><th>Case_Code</th><th>Case_Name</th><th>Request_Url</th><th>Case_Desc</th></tr>
+	<tr>
+	<td><input type="hidden" name="case_id" value="{{param.id}}" /></td>
+	<td><input type="text" name="case_code" value="{{param.case_code}}" /></td>
+	<td><input type="text" name="case_name" value="{{param.case_name}}" /></td>
+	<td><input type="text" name="request_url" value="{{param.request_url}}" /></td>
+	<td><input type="text" name="case_desc" value="{{param.case_desc}}" /></td>
+	</tr>
+	<div><input type="hidden" name="case_act" value="{{action}}" /></div>
+	<input type="submit" value="modify" /><a href="/index/test">返回主页</a>
+	</table>
+	</form>
+	
+{% else %}{% ifequal action 'add' %}
+	创建完毕后，请按create按钮进行保存
+	<form action="/index/{{case_id}}/case_act/" method="post" enctype="application/x-www-form-urlencoded">
+	<table width='500' border = '1'>
+	<tr><th>ID</th><th>Case_Code</th><th>Case_Name</th><th>Request_Url</th><th>Case_Desc</th></tr>
+	<tr>
+	<td><input type="text" name="case_id" value="" /></td>
+	<td><input type="text" name="case_code" value="" /></td>
+	<td><input type="text" name="case_name" value="" /></td>
+	<td><input type="text" name="request_url" value="" /></td>
+	<td><input type="text" name="case_desc" value="" /></td>
+	</tr>
+	<div><input type="hidden" name="case_act1" value="{{action}}" /></div>
+	<input type="submit" value="add" /><a href="/index/test">返回主页</a>
+	</table>
+	</form>
+{% else %}{% ifequal action 'del' %}
+	是否确认删除该记录？
+	<form action="/index/{{case_id}}/case_act/" method="post" enctype="application/x-www-form-urlencoded">
+	<table width='500' border = '1'>
+	<tr><th>ID</th><th>Case_Code</th><th>Case_Name</th><th>Request_Url</th><th>Case_Desc</th></tr>
+	<tr>
+	<td><input type="hidden" name="case_id" value="{{param.id}}" /></td>
+	<td><input type="text" name="case_code" value="{{param.case_code}}" /></td>
+	<td><input type="text" name="case_name" value="{{param.case_name}}" /></td>
+	<td><input type="text" name="request_url" value="{{param.request_url}}" /></td>
+	<td><input type="text" name="case_desc" value="{{param.case_desc}}" /></td>
+	</tr>
+	<div><input type="hidden" name="case_act2" value="{{action}}" /></div>
+	<input type="submit" value="del" /><a href="/index/test">返回主页</a>
+	</table>
+	</form>
+	
+{% endifequal %}{% endifequal %}{% endifequal %}
+</table>
+</form>
+
+</body>
+</html>
