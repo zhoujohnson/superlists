@@ -20,6 +20,6 @@ from demoapp import views
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('index/',views.Index),
-    path(r'json',views.getJson)
+    path(r'json/',views.getJson),
 ]
 
