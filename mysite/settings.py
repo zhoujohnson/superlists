@@ -76,15 +76,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 #默认连接数据库方式
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+     }
+ }
 #基于pymysql操作Mysql数据库
 
-import pymysql
+'''import pymysql
 pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
@@ -95,7 +95,7 @@ DATABASES = {
         'PASSWORD':'johnson',
         'PORT':'3306',
     }
-}
+}'''
 
 
 # Password validation

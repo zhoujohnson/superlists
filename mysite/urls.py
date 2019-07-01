@@ -1,18 +1,6 @@
-"""mysite URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+# 路由是浏览器输入url，在Django服务器响应url的转发中心。路由都
+# 写在urls文件里，它将浏览器输入的url映射到相应的业务处理逻辑也
+# 就是视图。
 from django.contrib import admin
 from django.conf.urls import include,url
 '''include的背后是一种即插即用的思想。项目根路由不关心具体app的
@@ -21,6 +9,12 @@ from django.conf.urls import include,url
 app目录可以放置在任何位置，而不用修改路由。这是软件设计里很常见
 的一种模式。'''
 # from django.urls import path
+# from polls import views  # 需要先导入对应app中的views文件
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path(r'^polls',view.index))   # 我们添加这条路由，重点是路由
+# ]
+
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^polls',include('polls.urls'))
