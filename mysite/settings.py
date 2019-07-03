@@ -134,4 +134,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'    # 这个’static‘指的是你在浏览器中直接访问静态文件需要添加的前缀部分。比如http//www.baidu.com/static/logo.jpg
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static'),  # 这里的‘static'字符串就是指的项目目录中的static目录名了。
+]
