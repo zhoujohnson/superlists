@@ -1,5 +1,10 @@
 #Django 相关学习笔记
 
+
+学习地址
+
+https://www.liujiangblog.com/course/django/126
+
 ## 请求与响应
 
 
@@ -37,7 +42,7 @@ mysite/wsgi.py:一个基于WSGI的web服务器进入点，提供底层的网络�
 
 在models.py中定义模型model,也就是建立数据库表的布局
 
-####启用模型
+####启用模型  
 
 创建该app对应的数据库表结构
 
